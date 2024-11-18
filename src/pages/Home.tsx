@@ -9,7 +9,7 @@ const Home: React.FC = () => {
   return (
     <div className="w-full bg-custom-gradient flex flex-col">
       <Header />
-      <div className="mx-32">
+      <div className="md:mx-32">
         <Hero />
       </div>
       <AboutBruna />
