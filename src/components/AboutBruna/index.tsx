@@ -6,7 +6,7 @@ const AboutBruna = () => {
 
   return (
     <div className="w-full py-20">
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
+      <div className="max-w-6xl mx-auto px-8 md:px-12">
         <div className="flex flex-col md:flex-row justify-between items-center p-8 bg-rose-50 rounded-lg shadow-lg">
           <div
             className={`md:w-1/2 mb-12 md:mb-0 transition-transform duration-700 ease-in-out ${
@@ -16,15 +16,13 @@ const AboutBruna = () => {
             <img
               src={Bruna4}
               alt="Bruna Vellasco"
-              className="rounded-full w-40 h-40 md:w-48 md:h-48 object-cover mx-auto"
+              className="h-40 md:h-48 object-cover mx-auto"
             />
           </div>
           <div className="md:w-1/2 text-center md:text-left">
-            <h1 className="text-3xl md:text-4xl font-semibold text-blue-800 mb-6">
+            <h1 className="text-3xl md:text-4xl font-semibold text-blue-800 mb-4">
               Quem sou?
             </h1>
-
-            {/* Texto com animação de fade-in */}
             <div
               className={`transition-all duration-700 ease-in-out ${
                 showPersonalInfo ? "opacity-100 max-h-screen" : "opacity-0 max-h-0"
@@ -43,7 +41,7 @@ const AboutBruna = () => {
 
             <button
               onClick={() => setShowPersonalInfo(!showPersonalInfo)}
-              className="text-blue-800 font-semibold mt-4 flex items-center hover:scale-105 translate-x-1 duration-300"
+              className="text-blue-800 font-semibold mt-4  hover:scale-105 translate-x-1 duration-300"
             >
               {showPersonalInfo ? "Mostrar menos" : "Mostrar mais"}
               <span className="ml-2">

@@ -10,7 +10,6 @@ const Header: React.FC = () => {
 
   return (
     <header className="w-full bg-custom-gradient shadow-sm">
-      {/* Logo e botão do menu */}
       <div className="h-16 flex justify-between items-center px-4 sm:px-24">
         <Link to="/">
           <img className="w-28" src={logo} alt="logo" />
@@ -21,45 +20,32 @@ const Header: React.FC = () => {
         >
           {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </button>
-        <nav className="hidden lg:flex space-x-4">
+        <nav className="hidden lg:flex space-x-8 items-center">
           <Link
             className="
-              relative after:content-['']
-              after:absolute after:w-full
-              after:h-[2px] after:bg-pink-400
-              after:scale-x-0 after:origin-left
-              after:transition-transform after:duration-500
-              after:bottom-[-5px] hover:after:scale-x-100
+              relative group
               transition duration-300
             "
             to="/"
           >
             Home
-          </Link>
-          <Link
-            className="
-              relative after:content-['']
-              after:absolute after:w-full
-              after:h-[2px] after:bg-pink-400
-              after:scale-x-0 after:origin-left
-              after:transition-transform after:duration-500
-              after:bottom-[-5px] hover:after:scale-x-100
-              transition duration-300
-            "
-            to="/about"
-          >
-            Sobre / Especialidade
+            <span
+              className="
+                absolute bottom-0 left-0 w-full h-[2px] bg-pink-400
+                scale-x-0 group-hover:scale-x-100
+                origin-left transition-transform duration-500
+              "
+            ></span>
           </Link>
           <Link
             className="bg-[#ffe2de9a] rounded-full px-6 py-1 hover:bg-primary"
-            to="/contato"
+            to="/contact"
           >
             Contato
           </Link>
         </nav>
       </div>
 
-      {/* Menu Mobile */}
       <div
         className={`transition-all duration-500 ease-in-out overflow-hidden ${
           isMenuOpen ? "max-h-96" : "max-h-0"
@@ -69,32 +55,19 @@ const Header: React.FC = () => {
           <Link
             className="
               block w-full text-center py-2
-              relative after:content-['']
-              after:absolute after:w-full
-              after:h-[2px] after:bg-pink-400
-              after:scale-x-0 after:origin-left
-              after:transition-transform after:duration-500
-              after:bottom-0 hover:after:scale-x-100
+              relative group
               transition duration-300
             "
             to="/"
           >
             Home
-          </Link>
-          <Link
-            className="
-              block w-full text-center py-2
-              relative after:content-['']
-              after:absolute after:w-full
-              after:h-[2px] after:bg-pink-400
-              after:scale-x-0 after:origin-left
-              after:transition-transform after:duration-500
-              after:bottom-0 hover:after:scale-x-100
-              transition duration-300
-            "
-            to="/about"
-          >
-            Sobre / Especialidade
+            <span
+              className="
+                absolute bottom-0 left-0 w-full h-[2px] bg-pink-400
+                scale-x-0 group-hover:scale-x-100
+                origin-left transition-transform duration-500
+              "
+            ></span>
           </Link>
           <Link
             className="block w-full text-center bg-[#ffe2de9a] rounded-full px-6 py-2 hover:bg-primary"

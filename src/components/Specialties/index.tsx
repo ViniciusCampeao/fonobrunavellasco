@@ -37,8 +37,8 @@ const Specialties = () => {
 
   return (
     <div>
-      <div className="max-w-6xl mx-auto px-6 md:px-12">
-        <div className="bg-rose-50 py-12 px-8 rounded-lg shadow-lg mb-20">
+      <div className="max-w-6xl mx-auto px-8 md:px-12">
+        <div className="bg-rose-50 py-8 px-8 rounded-lg shadow-lg mb-20">
           <h2 className="text-2xl md:text-3xl font-semibold text-center text-blue-800 mb-10">
             Minhas especialidades
           </h2>

@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <div className="flex flex-col md:flex-row justify-between items-center">
       <div className="md:w-1/2 w-full px-12  md:py-52 text-center">
-        <h1 className=" font-quicksand text-xl font md:text-3xl mb-10 text-center font-semibold mt-10">
+        <h1 className=" font-quicksand text-xl font md:text-3xl md:mb-10 mb-4 text-center font-semibold mt-10">
         Cada som é uma história esperando para ser contada!
         </h1>
         <p className="text-sm md:text-lg mb-10 font-quicksand text-center">

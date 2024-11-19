@@ -39,7 +39,7 @@ const Footer = () => {
           </a>
         </div>
         <p className="text-white text-center text-sm sm:text-base">
-        Rua Cambará, 780 - Jardim Matilde, Ourinhos/SP
+        Avenida Horácio Soares, 448 - Jardim Paulista, Ourinhos/SP
         </p>
         <p className="text-gray-600 text-center mt-3 text-xs sm:text-sm">
           © {currentYear} Bruna Vellasco Martins Ltda
