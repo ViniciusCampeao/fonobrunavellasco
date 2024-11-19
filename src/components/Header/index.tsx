@@ -71,7 +71,7 @@ const Header: React.FC = () => {
           </Link>
           <Link
             className="block w-full text-center bg-[#ffe2de9a] rounded-full px-6 py-2 hover:bg-primary"
-            to="/contato"
+            to="/contact"
           >
             Contato
           </Link>
