@@ -10,13 +10,13 @@ const AboutBruna = () => {
         <div className="flex flex-col md:flex-row justify-between items-center p-8 bg-rose-50 rounded-lg shadow-lg">
           <div
             className={`md:w-1/2 mb-12 md:mb-0 transition-transform duration-700 ease-in-out ${
-              showPersonalInfo ? "transform translate-x-12" : "transform translate-x-0"
+              showPersonalInfo ? "md:transform md:translate-x-12" : "transform translate-x-0"
             }`}
           >
             <img
               src={Bruna4}
               alt="Bruna Vellasco"
-              className="rounded-full w-40 h-40 md:w-48 md:h-48 object-cover mx-auto border-4 border-pink-200"
+              className="rounded-full w-40 h-40 md:w-48 md:h-48 object-cover mx-auto"
             />
           </div>
           <div className="md:w-1/2 text-center md:text-left">

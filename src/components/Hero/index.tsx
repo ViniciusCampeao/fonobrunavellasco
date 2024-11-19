@@ -17,7 +17,7 @@ const Hero = () => {
           Contato
         </a>
       </div>
-      <div className="md:w-1/2 flex flex-col items-center w-[70%]">
+      <div className="md:w-1/2 flex flex-col items-center w-[0%]">
         <img src={Bruna} alt="Bruna" />
       </div>
     </div>
