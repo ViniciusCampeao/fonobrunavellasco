@@ -15,7 +15,7 @@ const ContactComponent = () => {
         </div>
 
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-2xl md:text-3xl font-semibold text-center mb-6">
+          <h1 className="text-2xl md:text-3xl font-semibold text-center my-8 md:mb-6">
             Nossos contatos principais:
           </h1>
           <a
@@ -47,7 +47,7 @@ const ContactComponent = () => {
 
 
           <a
-            href="tel:+14998039836"
+            href="tel:+01514998039836"
             className="w-full max-w-sm"
           >
             <div className="rounded-full p-4 bg-blue-500 flex items-center justify-center transform hover:scale-105 duration-300">

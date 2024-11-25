@@ -1,11 +1,11 @@
 const Localization = () => {  
   return (
-    <div className="flex flex-col items-center px-6 pb-6 md:p-12">    
+    <div className="flex flex-col items-center px-6 pb-6 md:p-12 md:mb-20 mb-10">    
       <div>
-        <h1 className="text-black font-quicksand text-xl md:text-2xl md:mt-4 mb-2 text-center">
+        <h1 className="text-black text-xl md:text-2xl md:mt-4 mb-2 text-center">
           Encontre-nos facilmente!
         </h1>
-        <p className="font-quicksand text-md md:text-xl mb-4 text-center">
+        <p className="text-md md:text-xl mb-4 text-center">
           Clique no mapa para abrir a localização.
         </p>
       </div>

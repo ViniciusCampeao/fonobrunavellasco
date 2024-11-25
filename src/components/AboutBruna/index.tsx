@@ -7,7 +7,7 @@ const AboutBruna = () => {
   return (
     <div className="w-full py-20">
       <div className="max-w-6xl mx-auto px-8 md:px-12">
-        <div className="flex flex-col md:flex-row justify-between items-center p-8 bg-rose-50 rounded-lg shadow-lg">
+        <div className="flex flex-col md:flex-row justify-between items-center p-8 bg-bgAnimals rounded-lg shadow-2xl">
           <div
             className={`md:w-1/2 mb-12 md:mb-0 transition-transform duration-700 ease-in-out ${
               showPersonalInfo ? "md:transform md:translate-x-12" : "transform translate-x-0"
