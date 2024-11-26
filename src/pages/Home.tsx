@@ -8,7 +8,7 @@ import Specialties from "../components/Specialties";
 const Home: React.FC = () => {
 
   return (
-    <div className="w-full bg-custom-gradient flex flex-col font-quicksand">
+    <div className="bg-custom-gradient font-quicksand">
       <Header />
       <div className="md:mx-32">
         <Hero />

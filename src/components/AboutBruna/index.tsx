@@ -16,11 +16,11 @@ const AboutBruna = () => {
             <img
               src={Bruna4}
               alt="Bruna Vellasco"
-              className="h-40 md:h-48 object-cover mx-auto"
+              className="h-40 md:h-48 object-cover mx-auto rounded-full"
             />
           </div>
           <div className="md:w-1/2 text-center md:text-left">
-            <h1 className="text-3xl md:text-4xl font-semibold text-blue-800 mb-4">
+            <h1 className="text-3xl md:text-4xl font-semibold text-[#6f6657] mb-4">
               Quem sou?
             </h1>
             <div
@@ -41,7 +41,7 @@ const AboutBruna = () => {
 
             <button
               onClick={() => setShowPersonalInfo(!showPersonalInfo)}
-              className="text-blue-800 font-semibold mt-4  hover:scale-105 translate-x-1 duration-300"
+              className="text-[#6f6657] font-semibold mt-4  hover:scale-105 translate-x-1 duration-300"
             >
               {showPersonalInfo ? "Mostrar menos" : "Mostrar mais"}
               <span className="ml-2">

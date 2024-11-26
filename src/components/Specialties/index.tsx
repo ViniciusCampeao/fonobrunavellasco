@@ -27,7 +27,7 @@ const Specialties = () => {
             }`}
           >
             <h2
-              className={`text-2xl md:text-3xl font-semibold text-blue-800 mb-8 text-center ${
+              className={`text-2xl md:text-3xl font-semibold text-[#6f6657] mb-8 text-center ${
                 showProfessionalInfo ? "md:text-center" : "md:text-left"
               }`}
             >
@@ -52,7 +52,7 @@ const Specialties = () => {
                       />
                     </div>
                     <div className="md:w-2/3">
-                      <h3 className="text-xl md:text-2xl font-semibold text-blue-800 mb-4">
+                      <h3 className="text-xl md:text-2xl font-semibold text-[#6f6657] mb-4">
                         {item.title}
                       </h3>
                       <p className="text-lg text-gray-700">{item.description}</p>
@@ -64,7 +64,7 @@ const Specialties = () => {
               <div className={`${showProfessionalInfo ? "md:text-center" : "text-center md:text-left"}`}>
                 <button
                   onClick={() => setShowProfessionalInfo(!showProfessionalInfo)}
-                  className="text-blue-800 font-semibold mt-4 hover:scale-105 translate-x-1 duration-300"
+                  className="text-[#6f6657] font-semibold mt-4 hover:scale-105 translate-x-1 duration-300"
                 >
                   {showProfessionalInfo ? "Mostrar menos" : "Mostrar mais"}
                   <span className="ml-2">{showProfessionalInfo ? "↓" : "↑"}</span>

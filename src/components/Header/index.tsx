@@ -9,7 +9,7 @@ const Header: React.FC = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="w-full bg-custom-gradient shadow-sm">
+    <header className="w-full bg-[#6f6657]">
       <div className="h-16 flex justify-between items-center px-4 sm:px-24">
         <Link to="/">
           <img className="w-28" src={logo} alt="logo" />
