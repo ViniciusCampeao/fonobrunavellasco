@@ -6,7 +6,8 @@ import { auth } from "../../../firebaseConfig"; // Importe o auth do Firebase
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [user, setUser] = useState<{ name: string | null } | null>(null); // Estado para armazenar o nome do usuário
+  const [user, setUser] = useState<{ email: string | null } | null>(null); // Estado para armazenar o e-mail do usuário
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Estado para controlar o dropdown
   const navigate = useNavigate(); // Hook para navegação programática
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -14,26 +15,31 @@ const Header: React.FC = () => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
       if (currentUser) {
-        setUser({ name: currentUser.displayName || "Usuário" });
+        setUser({ email: currentUser.email });
       } else {
         setUser(null); // Se não estiver autenticado, remove o usuário
       }
     });
-  
+
     return () => unsubscribe(); // Limpa o ouvinte quando o componente for desmontado
   }, []);
-  
 
-  // Função para extrair as iniciais do nome
-  const getInitials = (name: string) => {
-    const nameParts = name.split(" ");
-    return nameParts.map((part) => part[0].toUpperCase()).join("");
+  // Função para extrair as iniciais do e-mail
+  const getEmailInitials = (email: string) => {
+    if (!email) return "";
+    return email.split("@")[0][0].toUpperCase();
   };
 
-  // Navegar para o dashboard ao clicar nas iniciais
-  const handleInitialClick = () => {
-    if (user) {
-      navigate("/dashboard"); // Redireciona para o dashboard
+  // Função para alternar o dropdown
+  const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
+
+  // Função para logout
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+      navigate("/login");
+    } catch (error) {
+      console.error("Erro ao fazer logout:", error);
     }
   };
 
@@ -43,10 +49,7 @@ const Header: React.FC = () => {
         <Link to="/">
           <img className="w-28" src={logo} alt="logo" />
         </Link>
-        <button
-          onClick={toggleMenu}
-          className="lg:hidden flex items-center p-2"
-        >
+        <button onClick={toggleMenu} className="lg:hidden flex items-center p-2">
           {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </button>
         <nav className="hidden lg:flex space-x-8 items-center">
@@ -54,10 +57,7 @@ const Header: React.FC = () => {
             Home
             <span className="absolute bottom-0 left-0 w-full h-[2px] bg-pink-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></span>
           </Link>
-          <Link
-            className="relative group transition duration-300"
-            to="/contact"
-          >
+          <Link className="relative group transition duration-300" to="/contact">
             Contato
             <span className="absolute bottom-0 left-0 w-full h-[2px] bg-pink-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></span>
           </Link>
@@ -68,17 +68,32 @@ const Header: React.FC = () => {
 
           {/* Verificar se o usuário está autenticado */}
           {user ? (
-            <div
-              onClick={handleInitialClick}
-              className="flex items-center justify-center w-10 h-10 rounded-full bg-amber-950 text-white cursor-pointer"
-            >
-              {user.name ? getInitials(user.name) : "Anônimo"}
+            <div className="relative">
+              <div
+                onClick={toggleDropdown}
+                className="flex items-center justify-center w-10 h-10 rounded-full bg-amber-950 text-white cursor-pointer"
+              >
+                {user.email ? getEmailInitials(user.email) : "Anônimo"}
+              </div>
+              {isDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-10">
+                  <Link
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    to="/profile"
+                  >
+                    Ver Informações
+                  </Link>
+                  <button
+                    className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
+                </div>
+              )}
             </div>
           ) : (
-            <Link
-              className="bg-[#ffe2de9a] rounded-full px-6 py-1 hover:bg-primary"
-              to="/login"
-            >
+            <Link className="bg-[#ffe2de9a] rounded-full px-6 py-1 hover:bg-primary" to="/login">
               Login
             </Link>
           )}
@@ -91,32 +106,39 @@ const Header: React.FC = () => {
         } lg:hidden bg-pink-50`}
       >
         <nav className="flex flex-col items-center py-4 px-4">
-          <Link
-            className="block w-full text-center py-2 relative group transition duration-300"
-            to="/"
-          >
+          <Link className="block w-full text-center py-2 relative group transition duration-300" to="/">
             Home
           </Link>
-          <Link
-            className="block w-full text-center py-2 relative group transition duration-300"
-            to="/contact"
-          >
+          <Link className="block w-full text-center py-2 relative group transition duration-300" to="/contact">
             Contato
           </Link>
           {user ? (
             <div
-              onClick={handleInitialClick}
+              onClick={toggleDropdown}
               className="block w-full text-center py-2 bg-amber-950 text-white rounded-full cursor-pointer"
             >
-              {user.name ? getInitials(user.name) : ""}
+              {user.email ? getEmailInitials(user.email) : ""}
             </div>
           ) : (
-            <Link
-              className="block text-center bg-[#ffe2de9a] rounded-full px-6 py-2 hover:bg-primary"
-              to="/login"
-            >
+            <Link className="block text-center bg-[#ffe2de9a] rounded-full px-6 py-2 hover:bg-primary" to="/login">
               Login
             </Link>
+          )}
+          {isDropdownOpen && (
+            <div className="w-full bg-white rounded-md shadow-lg py-2 mt-2 z-10">
+              <Link
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                to="/profile"
+              >
+                Ver Informações
+              </Link>
+              <button
+                className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            </div>
           )}
         </nav>
       </div>

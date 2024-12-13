@@ -47,7 +47,7 @@ const RegisterUser: React.FC<RegisterUserProps> = ({ onRegister, success, error 
         Admin
       </label>
       <button
-        className="bg-brown text-white py-2 px-4 rounded hover:bg-brown-dark"
+        className="bg-brown text-white py-2 px-4 rounded hover:bg-brown-dark w-full"
         onClick={handleRegister}
       >
         Registrar
