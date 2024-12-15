@@ -20,7 +20,7 @@ const Hero = () => {
         </Link>
       </div>
       <div className="md:w-1/2 flex flex-col items-center w-[0%]">
-        <img src={Bruna} alt="Bruna" />
+        <img className="rounded-[30%]" src={Bruna} alt="Bruna" />
       </div>
     </div>
   );
