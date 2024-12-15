@@ -27,14 +27,13 @@ const Dashboard: React.FC = () => {
     };
 
     fetchUsers();
-  }, [success]); // Atualiza a lista de usuários após um registro bem-sucedido
+  }, [success]);
 
   const handleRegister = async (email: string, password: string, isAdmin: boolean) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // Salvar dados do usuário no Firestore
       await setDoc(doc(db, "users", user.uid), {
         email: user.email,
         isAdmin: isAdmin,

@@ -1,4 +1,3 @@
-// Importando Firebase (sintaxe modular)
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
@@ -12,10 +11,8 @@ const firebaseConfig = {
   appId: "1:81284844292:web:06925eb4ec3c535c46de51",
 };
 
-// Inicializando o Firebase
 const app = initializeApp(firebaseConfig);
 
-// Exportando serviços
 export const auth = getAuth(app);
 export const googleAuthProvider = new GoogleAuthProvider();
 export const db = getFirestore(app);

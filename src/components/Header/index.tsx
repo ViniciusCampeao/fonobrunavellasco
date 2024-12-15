@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import { FiMenu, FiX } from "react-icons/fi";
-import { auth } from "../../../firebaseConfig"; // Importe o auth do Firebase
+import { auth } from "../../../firebaseConfig";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [user, setUser] = useState<{ email: string | null } | null>(null); // Estado para armazenar o e-mail do usuário
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Estado para controlar o dropdown
-  const navigate = useNavigate(); // Hook para navegação programática
+  const [user, setUser] = useState<{ email: string | null } | null>(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
@@ -16,30 +17,39 @@ const Header: React.FC = () => {
     const unsubscribe = auth.onAuthStateChanged((currentUser) => {
       if (currentUser) {
         setUser({ email: currentUser.email });
+
+        const adminStatus = localStorage.getItem("isAdmin");
+        setIsAdmin(adminStatus === "true");
       } else {
-        setUser(null); // Se não estiver autenticado, remove o usuário
+        setUser(null);
+        setIsAdmin(false);
       }
     });
 
-    return () => unsubscribe(); // Limpa o ouvinte quando o componente for desmontado
+    return () => unsubscribe();
   }, []);
 
-  // Função para extrair as iniciais do e-mail
   const getEmailInitials = (email: string) => {
     if (!email) return "";
     return email.split("@")[0][0].toUpperCase();
   };
 
-  // Função para alternar o dropdown
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
-  // Função para logout
   const handleLogout = async () => {
     try {
       await auth.signOut();
+      localStorage.removeItem("isAdmin");
       navigate("/login");
     } catch (error) {
       console.error("Erro ao fazer logout:", error);
+    }
+  };
+
+  const handleGameClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    if (!user) {
+      event.preventDefault();
+      navigate("/login");
     }
   };
 
@@ -61,12 +71,17 @@ const Header: React.FC = () => {
             Contato
             <span className="absolute bottom-0 left-0 w-full h-[2px] bg-pink-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></span>
           </Link>
-          <Link className="relative group transition duration-300" to="/game">
+          <Link className="relative group transition duration-300" to="/game" onClick={handleGameClick}>
             Game
             <span className="absolute bottom-0 left-0 w-full h-[2px] bg-pink-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></span>
           </Link>
+          {isAdmin && (
+            <Link className="relative group transition duration-300" to="/dashboard">
+              Dashboard
+              <span className="absolute bottom-0 left-0 w-full h-[2px] bg-pink-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500"></span>
+            </Link>
+          )}
 
-          {/* Verificar se o usuário está autenticado */}
           {user ? (
             <div className="relative">
               <div
@@ -112,6 +127,14 @@ const Header: React.FC = () => {
           <Link className="block w-full text-center py-2 relative group transition duration-300" to="/contact">
             Contato
           </Link>
+          <Link className="block w-full text-center py-2 relative group transition duration-300" to="/game" onClick={handleGameClick}>
+            Game
+          </Link>
+          {isAdmin && (
+            <Link className="block w-full text-center py-2 relative group transition duration-300" to="/dashboard">
+              Dashboard
+            </Link>
+          )}
           {user ? (
             <div
               onClick={toggleDropdown}
