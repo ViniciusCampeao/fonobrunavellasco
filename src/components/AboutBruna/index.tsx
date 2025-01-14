@@ -29,13 +29,13 @@ const AboutBruna = () => {
               } overflow-hidden`}
             >
               <p className="text-lg mb-6">
-                Com mais de 7 anos de experiência clínica desde 2016, acredito no cuidado personalizado e no desenvolvimento de cada criança, utilizando métodos que auxiliam na comunicação e no bem-estar.
+                Com mais de 8 anos de experiência clínica desde 2016, acredito no cuidado personalizado e no desenvolvimento de cada criança, utilizando métodos que auxiliam na comunicação e no bem-estar. 
               </p>
               <p className="text-lg mb-6">
                 O que me motivou a seguir a carreira na fonoaudiologia foi minha experiência pessoal que tive com a terapia fonoaudiológica na infância, o que me fez perceber o impacto que essa área pode ter na vida de uma pessoa.
               </p>
               <p className="text-lg mb-6">
-                Fora do consultório, amo estar em família, viajar, comer doces e assistir comédias românticas.
+                Graduada pela Universidade de São Paulo - USP desde 2015, venho me atualizando para oferecer o melhor atendimento personalizado para cada criança e família.
               </p>
             </div>
 
@@ -45,7 +45,7 @@ const AboutBruna = () => {
             >
               {showPersonalInfo ? "Mostrar menos" : "Mostrar mais"}
               <span className="ml-2">
-                {showPersonalInfo ? "↓" : "↑"}
+                {showPersonalInfo ? "↑" : "↓"}
               </span>
             </button>
           </div>
