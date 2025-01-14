@@ -1,4 +1,5 @@
 import AboutBruna from "../components/AboutBruna";
+import ImageCarousel from "../components/Carousel";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
@@ -15,6 +16,7 @@ const Home: React.FC = () => {
       </div>
       <AboutBruna />
       <Specialties />
+      <ImageCarousel />
       <Localization />
       <Footer />
     </div>
