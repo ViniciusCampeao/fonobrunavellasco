@@ -1,0 +1,15 @@
+/* Adicione isto ao seu styles.css */
+.slick-slide > div {
+  border-radius: 12px; /* Ajuste conforme necessário */
+  overflow: hidden;
+  padding: 10px; /* Ajuste conforme necessário */
+}
+.rounded-container .slick-slide > div img {
+  border-radius: 12px; /* Garantir que a imagem também tenha bordas arredondadas */
+}
+@media (max-width: 768px) {
+  .slick-slide > div {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
