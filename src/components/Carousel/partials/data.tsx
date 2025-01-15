@@ -1,5 +1,4 @@
 import img2 from "../../../assets/images/Clinica/2.jpg";
-import img3 from "../../../assets/images/Clinica/3.jpg";
 import img4 from "../../../assets/images/Clinica/4.jpg";
 import img5 from "../../../assets/images/Clinica/5.jpg";
 import img6 from "../../../assets/images/Clinica/6.jpg";
@@ -15,12 +14,6 @@ import img14 from "../../../assets/images/Clinica/14.jpg";
 const carouselData = [
   {
     img: img2,
-  },
-  {
-    img: img2,  
-  },
-  {
-    img: img3,
   },
   {
     img: img4,

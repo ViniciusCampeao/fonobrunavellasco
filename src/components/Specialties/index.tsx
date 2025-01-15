@@ -64,7 +64,7 @@ const Specialties = () => {
                   className="text-[#6f6657] font-semibold mt-4 hover:scale-105 translate-x-1 duration-300"
                 >
                   {showProfessionalInfo ? "Mostrar menos" : "Mostrar mais"}
-                  <span className="ml-2">{showProfessionalInfo ? "↓" : "↑"}</span>
+                  <span className="ml-2">{showProfessionalInfo ? "↑" : "↓"}</span>
                 </button>
               </div>
             </div>
