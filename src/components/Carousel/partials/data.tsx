@@ -1,17 +1,16 @@
-import img2 from "../../../assets/images/Clinica/2.jpg";
-import img4 from "../../../assets/images/Clinica/4.jpg";
-import img5 from "../../../assets/images/Clinica/5.jpg";
-import img6 from "../../../assets/images/Clinica/6.jpg";
-import img7 from "../../../assets/images/Clinica/7.jpg";
-import img8 from "../../../assets/images/Clinica/8.jpg";
-import img9 from "../../../assets/images/Clinica/9.jpg";
-import img10 from "../../../assets/images/Clinica/10.jpg";
-import img11 from "../../../assets/images/Clinica/11.jpg";
-import img12 from "../../../assets/images/Clinica/12.jpg";
-import img13 from "../../../assets/images/Clinica/13.jpg";
-import img14 from "../../../assets/images/Clinica/14.jpg";
+import img1 from "../../../assets/images/Clinica/1.jpeg";
+import img2 from "../../../assets/images/Clinica/2.jpeg";
+import img4 from "../../../assets/images/Clinica/4.jpeg";
+import img5 from "../../../assets/images/Clinica/5.jpeg";
+import img6 from "../../../assets/images/Clinica/6.jpeg";
+import img7 from "../../../assets/images/Clinica/7.jpeg";
+import img8 from "../../../assets/images/Clinica/8.jpeg";
+import img9 from "../../../assets/images/Clinica/9.jpeg";
 
 const carouselData = [
+  {
+    img: img1,
+  },  
   {
     img: img2,
   },
@@ -33,21 +32,6 @@ const carouselData = [
   {
     img: img9,
   },
-  {
-    img: img10,
-  },
-  {
-    img: img11,
-  },
-  {
-    img: img12,
-  },
-  {
-    img: img13,
-  },
-  {
-    img: img14,
-  }
 ];
 
 export default carouselData;
