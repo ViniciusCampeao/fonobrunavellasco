@@ -1,0 +1,39 @@
+
+.game-board {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.shapes,
+.targets {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.shape,
+.target {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-transform: capitalize;
+}
+
+.shape.square,
+.target.square {
+  border-radius: 0;
+}
+
+.shape.pentagon,
+.target.pentagon {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background: inherit;
+  border-radius: 0;
+  clip-path: polygon(50% 0%, 100% 40%, 82% 100%, 18% 100%, 0% 40%);
+}

@@ -39,7 +39,7 @@ const ImageCarousel: React.FC = () => {
   return (
     <div className="mb-20 flex justify-center items-center flex-col">
       <h1 className="mb-5 text-[#6f6657] font-quicksand text-2xl md:text-3xl font-semibold">Conheça nosso consultório</h1>
-      <div className="w-[80%] rounded-container">
+      <div className="md:w-[45%] w-[60%] rounded-container">
         <Slider {...settings} appendDots={renderDots}>
           {carouselData.map((item, index) => (
             <div key={index} className="flex flex-col items-center justify-center w-full mx-auto">
